@@ -1,5 +1,7 @@
 package dto;
 
+import entity.BlogPost;
+
 import java.sql.Timestamp;
 
 public class Blog {
@@ -16,6 +18,26 @@ public class Blog {
     private Timestamp createdAt;
 
     private Timestamp updatedAt;
+
+    public Blog(BlogPost blogPost) {
+        this.blogId = blogPost.getBlogId();
+        this.title = blogPost.getTitle();
+        this.content = blogPost.getContent();
+        this.category = blogPost.getCategory();
+        this.tags = blogPost.getTags();
+        this.createdAt = blogPost.getCreatedAt();
+        this.updatedAt = blogPost.getUpdatedAt();
+    }
+
+    public Blog(Integer blogId, String title, String content, String category, String tags, Timestamp createdAt, Timestamp updatedAt) {
+        this.blogId = blogId;
+        this.title = title;
+        this.content = content;
+        this.category = category;
+        this.tags = tags;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
+    }
 
     public String getTags() {
         return tags;
